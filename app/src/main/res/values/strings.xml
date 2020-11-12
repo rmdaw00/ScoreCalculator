@@ -16,4 +16,6 @@
     <string name="AP_btnTxt_AddPlayer">Add Player</string>
     <string name="AP_txthint_add_name">Add Name</string>
     <string name="AP_btnTxt_Done">Done</string>
+    <string name="M_btn_playPool">Play Pool</string>
+    <string name="M_Btn_playSnooker">Play Snooker</string>
 </resources>

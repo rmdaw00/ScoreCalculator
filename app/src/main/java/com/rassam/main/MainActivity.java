@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.rassam.main.AddPlayers;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
@@ -64,5 +65,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void startNew(View view) {
+        String game = "";
+        switch(view.getId()) {
+            case R.id.M_playPool:
+                game = "pool";
+                break;
+            case R.id.M_playSnooker:
+                game = "snooker";
+                break;
+
+        }
+        Intent intent = new Intent(this, AddPlayers.class);
+        intent.putExtra("game", game);
+        startActivityForResult(intent, 2000);
+
     }
 }

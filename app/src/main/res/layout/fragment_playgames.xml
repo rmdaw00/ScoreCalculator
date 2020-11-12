@@ -16,7 +16,7 @@
         android:rowCount="5">
 
         <Button
-            android:id="@+id/newgame"
+            android:id="@+id/M_playPool"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="0"
@@ -26,12 +26,13 @@
             android:layout_gravity="fill"
             android:layout_margin="5sp"
             android:background="@drawable/rounded_button"
-            android:text="Play Pool"
+            android:onClick="startNew"
+            android:text="@string/M_btn_playPool"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/options"
+            android:id="@+id/M_playSnooker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_rowWeight="1"
@@ -39,7 +40,8 @@
             android:layout_gravity="fill"
             android:layout_margin="5sp"
             android:background="@drawable/rounded_button"
-            android:text="Play Snooker"
+            android:onClick="startNew"
+            android:text="@string/M_Btn_playSnooker"
             android:textSize="18sp"
             android:textStyle="bold" />
 

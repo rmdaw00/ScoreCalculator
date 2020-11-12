@@ -1,18 +1,16 @@
-package com.rmdaw.scorecalculator;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.rassam.main;
 
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.text.method.KeyListener;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.regex.Pattern;
@@ -71,7 +69,7 @@ public class AddPlayers extends AppCompatActivity  {
                     LinearLayout.LayoutParams.WRAP_CONTENT) // Height Of The TextView
             );
             newTextView.setText(name.trim());
-            players.add(new Player());
+            //players.add(new Player());
 
             edtxt_AddName.setText("");
             newTextView.setTextSize(40);
