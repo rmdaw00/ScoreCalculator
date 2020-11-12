@@ -14,11 +14,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class AddPlayers extends AppCompatActivity  {
     LinearLayout lyt_Names;
     EditText edtxt_AddName;
+    ArrayList<Player> players;
     Button btn_AddPlayer;
     int index;
 
@@ -69,7 +71,7 @@ public class AddPlayers extends AppCompatActivity  {
                     LinearLayout.LayoutParams.WRAP_CONTENT) // Height Of The TextView
             );
             newTextView.setText(name.trim());
-
+            players.add(new Player());
 
             edtxt_AddName.setText("");
             newTextView.setTextSize(40);
@@ -78,5 +80,9 @@ public class AddPlayers extends AppCompatActivity  {
             edtxt_AddName.setText("");
             Toast.makeText(getApplicationContext(),"Please add a name", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void done(View view) {
+
     }
 }

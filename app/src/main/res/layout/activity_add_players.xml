@@ -10,21 +10,40 @@
 
     <Button
         android:id="@+id/btn_AddPlayer"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="60dp"
         android:background="@color/black"
-        android:text="@string/AP_lblTxt_AddPlayer"
+        android:onClick="addPlayer"
+
+        android:text="@string/AP_btnTxt_AddPlayer"
         android:textColor="#fff"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/imgLogo"
-
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_Done"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lyt_Note"
-        android:onClick="addPlayer"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/lyt_Note" />
+
+    <Button
+        android:id="@+id/btn_Done"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="60dp"
+        android:background="@color/black"
+
+        android:onClick="done"
+        android:text="@string/AP_btnTxt_Done"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/imgLogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_AddPlayer"
+        app:layout_constraintTop_toBottomOf="@+id/lyt_Note" />
 
     <TextView
         android:id="@+id/txtAddPlayers"
@@ -32,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/AP_btnTxt_addplayers"
+        android:text="@string/AP_lblTxt_addplayers"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/lyt_Note"
@@ -47,8 +66,8 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="8dp"
-       android:background="@drawable/note"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/note"
         app:layout_constraintBottom_toTopOf="@+id/btn_AddPlayer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

@@ -12,7 +12,8 @@
     <string name="title_activity_game">GameActivity</string>
     <string name="app_name">Score Calculator</string>
     <string name="logoAlt">picture of Application Logo, which is two billiard balls</string>
-    <string name="AP_btnTxt_addplayers">Add Players</string>
-    <string name="AP_lblTxt_AddPlayer">Add Player</string>
+    <string name="AP_lblTxt_addplayers">Add Players</string>
+    <string name="AP_btnTxt_AddPlayer">Add Player</string>
     <string name="AP_txthint_add_name">Add Name</string>
+    <string name="AP_btnTxt_Done">Done</string>
 </resources>
