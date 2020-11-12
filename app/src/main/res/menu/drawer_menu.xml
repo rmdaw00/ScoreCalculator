@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+<group android:checkableBehavior="single">
+    <item android:id="@+id/nav_newgame"
+        android:icon="@drawable/newgame"
+        android:title="New Game"/>
+    <item android:id="@+id/nav_statistics"
+        android:icon="@drawable/statistics"
+        android:title="Statistics"/>
+    <item android:id="@+id/nav_history"
+        android:icon="@drawable/history"
+        android:title="History"/>
+    <item android:id="@+id/nav_discover"
+        android:icon="@drawable/discover"
+        android:title="Discover"/>
+    <item android:id="@+id/nav_options"
+        android:icon="@drawable/options"
+        android:title="Options"/>
+</group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item android:id="@+id/nav_email"
+                android:icon="@drawable/email"
+                android:title="Contact Us"/>
+            <item android:id="@+id/nav_share"
+                android:icon="@drawable/share"
+                android:title="Share"/>
+        </menu>
+    </item>
+</menu>
