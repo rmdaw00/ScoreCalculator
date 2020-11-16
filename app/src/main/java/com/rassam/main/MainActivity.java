@@ -56,6 +56,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_newgame:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PlayFragment()).commit();
                 break;
+            case R.id.nav_statistics:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Statistics()).commit();
+                break;
+            case R.id.nav_history:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new History()).commit();
+                break;
             case R.id.nav_discover:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Discover()).commit();
                 break;
@@ -73,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.M_playPool:
                 game = "pool";
                 break;
+
             case R.id.M_playSnooker:
                 game = "snooker";
                 break;
