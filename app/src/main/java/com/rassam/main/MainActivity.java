@@ -14,6 +14,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -21,6 +22,8 @@ import com.rassam.main.AddPlayers;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PlayFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_newgame);
         }
+
     }
 
     @Override
@@ -88,8 +92,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_share:
                 Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
                 break;
-
-
+            case R.id.nav_email:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ContactUs()).commit();
+                break;
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
