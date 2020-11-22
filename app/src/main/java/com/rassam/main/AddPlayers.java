@@ -1,5 +1,6 @@
 package com.rassam.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -81,6 +82,7 @@ public class AddPlayers extends AppCompatActivity  {
     }
 
     public void done(View view) {
-
+        Intent intent = new Intent(this, GameSnooker.class);
+        startActivityForResult(intent, 2001);
     }
 }
