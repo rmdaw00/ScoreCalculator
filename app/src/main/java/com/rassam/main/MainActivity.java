@@ -8,18 +8,28 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.rassam.BilliardEntities.GameType;
 import com.rassam.main.AddPlayers;
 
+import java.io.File;
+import java.net.URI;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +50,36 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if(savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PlayFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_newgame);
+        }
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.settings, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.item1:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Settings()).commit();
+                return true;
+            case R.id.share:
+                int id = item.getItemId();
+                if(id == R.id.share){
+                    ApplicationInfo api = getApplicationContext().getApplicationInfo();
+                    String apkpath = api.sourceDir;
+                    Intent intent = new Intent(Intent.ACTION_SEND);
+                    intent.setDataAndType(Uri.parse(apkpath),
+                            "application/vnd.android.package-archive");
+                    startActivity(Intent.createChooser(intent, "ShareView"));
+                }
+            default:
+            return super.onOptionsItemSelected(item);
         }
     }
 
@@ -66,8 +106,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_discover:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Discover()).commit();
                 break;
-            case R.id.nav_share:
-                Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
+            case R.id.nav_email:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ContactUs()).commit();
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);
