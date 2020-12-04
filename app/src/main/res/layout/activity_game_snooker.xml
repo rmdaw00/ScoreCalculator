@@ -8,13 +8,27 @@
     android:background="@drawable/background_gradient"
     tools:context=".GameSnooker">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="411dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clBalls"
-        android:layout_width="199dp"
-        android:layout_height="340dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/clOptions"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gd_hor">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clB3"
@@ -29,11 +43,13 @@
                 android:id="@+id/bBlue"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
+                android:contentDescription="@string/imgText_BlueBall"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/bblue" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -49,6 +65,7 @@
                 android:id="@+id/bPink"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
+                android:contentDescription="@string/imgText_PinkBall"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -64,10 +81,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/clB4">
+
             <ImageView
                 android:id="@+id/bRed1"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
+                android:contentDescription="@string/imgText_RedBall"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -91,7 +110,8 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="32dp"
-                android:translationX="10dp"
+                android:contentDescription="@string/imgText_RedBall"
+                android:translationX="17dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/bRed3"
                 app:layout_constraintStart_toStartOf="parent"
@@ -102,9 +122,9 @@
                 android:id="@+id/bRed3"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:translationX="-10dp"
                 android:layout_marginEnd="32dp"
-
+                android:contentDescription="@string/imgText_RedBall"
+                android:translationX="-17dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/bRed2"
@@ -120,11 +140,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/clB6">
+
             <ImageView
                 android:id="@+id/bRed4"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="24dp"
+                android:contentDescription="@string/imgText_RedBall"
                 android:translationX="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/bRed5"
@@ -136,6 +158,7 @@
                 android:id="@+id/bRed5"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:contentDescription="@string/imgText_RedBall"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/bRed6"
                 app:layout_constraintStart_toEndOf="@+id/bRed4"
@@ -147,7 +170,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginEnd="24dp"
-                android:contentDescription="5th red ball"
+                android:contentDescription="@string/imgText_RedBall"
                 android:translationX="-10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -166,10 +189,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/clB7">
+
             <ImageView
                 android:id="@+id/bRed7"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:contentDescription="@string/imgText_RedBall"
                 android:translationX="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/bRed8"
@@ -181,6 +206,7 @@
                 android:id="@+id/bRed8"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:contentDescription="@string/imgText_RedBall"
                 android:translationX="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/bRed9"
@@ -192,6 +218,7 @@
                 android:id="@+id/bRed9"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:contentDescription="@string/imgText_RedBall"
                 android:translationX="-5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/bRed10"
@@ -203,13 +230,14 @@
                 android:id="@+id/bRed10"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:contentDescription="5th red ball"
+                android:contentDescription="@string/imgText_RedBall"
                 android:translationX="-10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/bRed9"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/bred" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -220,10 +248,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/clB8">
+
             <ImageView
                 android:id="@+id/bRed11"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:contentDescription="@string/imgText_RedBall"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/bRed12"
                 app:layout_constraintStart_toStartOf="parent"
@@ -234,6 +264,7 @@
                 android:id="@+id/bRed12"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:contentDescription="@string/imgText_RedBall"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/bRed13"
                 app:layout_constraintStart_toEndOf="@+id/bRed11"
@@ -244,6 +275,7 @@
                 android:id="@+id/bRed13"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:contentDescription="@string/imgText_RedBall"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/bRed14"
                 app:layout_constraintStart_toEndOf="@+id/bRed12"
@@ -254,6 +286,7 @@
                 android:id="@+id/bRed14"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:contentDescription="@string/imgText_RedBall"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/bRed15"
                 app:layout_constraintStart_toEndOf="@+id/bRed13"
@@ -264,8 +297,7 @@
                 android:id="@+id/bRed15"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:contentDescription="5th red ball"
-
+                android:contentDescription="@string/imgText_RedBall"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/bRed14"
@@ -281,10 +313,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/clB9">
+
             <ImageView
                 android:id="@+id/bBlack"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
+                android:contentDescription="@string/imgText_BlackBall"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -316,10 +350,11 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:contentDescription="@string/imgText_YellowBall"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/bBrown"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/bBrown"
                     app:srcCompat="@drawable/byellow" />
 
                 <ImageView
@@ -327,6 +362,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:contentDescription="@string/imgText_BrownBall"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/bGreen"
                     app:layout_constraintStart_toEndOf="@+id/bYellow"
@@ -338,6 +374,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:contentDescription="@string/imgText_GreenBall"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/bBrown"
@@ -351,6 +388,7 @@
             android:id="@+id/clB1"
             android:layout_width="0dp"
             android:layout_height="0dp"
+
             app:layout_constraintBottom_toTopOf="@+id/clB2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -360,6 +398,7 @@
                 android:id="@+id/bWhite"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
+                android:contentDescription="@string/imgText_WhiteBall"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -371,21 +410,311 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clOptions"
-        android:layout_width="199dp"
-        android:layout_height="340dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/clBalls">
+        app:layout_constraintStart_toStartOf="@+id/gd_Vert"
+        app:layout_constraintTop_toTopOf="@+id/gd_hor">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCurrentBall"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/imgDone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imgBorder"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@string/imgText_Border"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/emptyborder" />
+
+            <ImageView
+                android:id="@+id/imgCurrentBall"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@string/imgText_Border"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <ImageView
+            android:id="@+id/imgDone"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:contentDescription="@string/imgText_Next"
+            app:layout_constraintBottom_toTopOf="@+id/imgPot"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clCurrentBall"
+            app:srcCompat="@drawable/nextw" />
+
+        <ImageView
+            android:id="@+id/imgPot"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:contentDescription="@string/imgText_Pot"
+            app:layout_constraintBottom_toTopOf="@+id/imgFoul"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgDone"
+            app:srcCompat="@drawable/potw" />
+
+        <ImageView
+            android:id="@+id/imgFoul"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="2dp"
+            android:contentDescription="@string/imgText_Foul"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/imgRemoveRed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgPot"
+            app:srcCompat="@drawable/foulw" />
+
+        <ImageView
+            android:id="@+id/imgRemoveRed"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:contentDescription="@string/imgText_RmRed"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imgFoul"
+            app:layout_constraintTop_toBottomOf="@id/imgDone"
+            app:srcCompat="@drawable/removeballw" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clScore"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/clBalls"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="99dp">
+        android:layout_marginStart="3dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clGameInfo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/clPlayerInfo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+
+
+
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <com.google.android.material.chip.ChipGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:singleSelection="true">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorAccent"
+                            android:checkable="true"
+                            android:checked="true"
+                            android:text="Player1" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorAccent"
+                            android:checkable="true"
+                            android:text="Player2" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorAccent"
+                            android:checkable="true"
+                            android:text="Player1" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorAccent"
+                            android:checkable="true"
+                            android:text="Player2" />
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorAccent"
+                            android:checkable="true"
+                            android:text="Player1" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorAccent"
+                            android:checkable="true"
+                            android:text="Player2" />
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorAccent"
+                            android:checkable="true"
+                            android:text="Player2" />
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorAccent"
+                            android:checkable="true"
+                            android:text="Player2" />
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorAccent"
+                            android:checkable="true"
+                            android:text="Player2" />
+
+                    </com.google.android.material.chip.ChipGroup>
+                </LinearLayout>
+
+
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/txtPoints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="0"
+                android:textSize="25sp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clPlayerInfo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clGameInfo">
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gd_hor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="433dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gd_Vert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.54" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/gd_hor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clScore">
+
+        <TextView
+            android:id="@+id/tvCurrentBreak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:lines="1"
+            android:text="@string/txtText_CurrentBreak"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/clBreak"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clBreak"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/imgBack"
+            app:layout_constraintStart_toEndOf="@id/tvCurrentBreak"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/clBreak"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/back" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

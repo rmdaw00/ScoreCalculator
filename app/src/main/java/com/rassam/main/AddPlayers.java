@@ -13,15 +13,20 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.rassam.BilliardEntities.GameType;
+import com.rassam.ESnooker.Player;
+
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class AddPlayers extends AppCompatActivity  {
-    LinearLayout lyt_Names;
-    EditText edtxt_AddName;
-    ArrayList<Player> players;
-    Button btn_AddPlayer;
-    int index;
+    private LinearLayout lyt_Names;
+    private EditText edtxt_AddName;
+    private ArrayList<Player> players;
+    private Button btn_AddPlayer;
+    private int index;
+    private GameType gameType;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,15 @@ public class AddPlayers extends AppCompatActivity  {
         edtxt_AddName = (EditText) findViewById(R.id.edtxt_AddName);
         btn_AddPlayer = (Button) findViewById(R.id.btn_AddPlayer);
         index = 0;
+
+        Bundle extras = getIntent().getExtras();
+        if(extras == null) {
+            gameType= null;
+        } else {
+            gameType =(GameType) extras.getSerializable("gameType");
+        }
+
+
         edtxt_AddName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -62,6 +76,8 @@ public class AddPlayers extends AppCompatActivity  {
 
 
     public void addPlayer(View view) {
+        // TODO: Add tasks to assign new ids to (game, playerInGame, PlayerTotal)
+
         String name = edtxt_AddName.getText().toString();
         if (!name.trim().equals("")) {
             TextView newTextView = new TextView(getApplicationContext());
@@ -82,7 +98,15 @@ public class AddPlayers extends AppCompatActivity  {
     }
 
     public void done(View view) {
-        Intent intent = new Intent(this, GameSnooker.class);
-        startActivityForResult(intent, 2001);
+
+        if (gameType == GameType.snooker) {
+            Intent intent = new Intent(this, GameSnooker.class);
+
+            startActivityForResult(intent, 2001);
+        } else
+        {
+            Intent intent = new Intent(this, testFile.class);
+            startActivityForResult(intent, 2001);
+        }
     }
 }

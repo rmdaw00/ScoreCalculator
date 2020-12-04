@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.rassam.BilliardEntities.GameType;
 import com.rassam.main.AddPlayers;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -74,19 +75,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void startNew(View view) {
-        String game = "";
+        GameType gameType = null;
         switch(view.getId()) {
             case R.id.M_playPool:
-                game = "pool";
+                gameType = GameType.Ball8;
                 break;
 
             case R.id.M_playSnooker:
-                game = "snooker";
+                gameType = GameType.snooker;
                 break;
-
         }
         Intent intent = new Intent(this, AddPlayers.class);
-        intent.putExtra("game", game);
+        intent.putExtra("gameType", gameType);
         startActivityForResult(intent, 2000);
 
     }

@@ -1,5 +1,6 @@
 <resources>
     <string name="title_activity_play">Play</string>
+    <string name="DatabaseLists">DatabaseLists</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -18,4 +19,19 @@
     <string name="AP_btnTxt_Done">Done</string>
     <string name="M_btn_playPool">Play Pool</string>
     <string name="M_Btn_playSnooker">Play Snooker</string>
+    <string name="imgText_RedBall">Red ball</string>
+    <string name="imgText_BlueBall">Blue Ball</string>
+    <string name="imgText_PinkBall">Pink Ball</string>
+    <string name="imgText_BlackBall">Black Ball</string>
+    <string name="imgText_YellowBall">Yellow Ball</string>
+    <string name="imgText_BrownBall">Brown Ball</string>
+    <string name="imgText_GreenBall">Green Ball</string>
+    <string name="imgText_WhiteBall">White Ball</string>
+    <string name="imgText_Border">Current Selected Ball</string>
+    <string name="imgText_Next">Finish Turn</string>
+    <string name="imgText_Pot">Ball Potted</string>
+    <string name="imgText_Foul">Foul</string>
+    <string name="imgText_RmRed">Remove Red Ball</string>
+    <string name="txtText_CurrentBreak">Current Break:</string>
+
 </resources>
