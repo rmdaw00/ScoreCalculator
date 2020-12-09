@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -15,20 +16,17 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.rassam.BilliardEntities.GameType;
-import com.rassam.main.AddPlayers;
-
-import java.io.File;
-import java.net.URI;
+import com.rassam.data.DummyData;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
 
+    private DummyData statisticsData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +50,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             navigationView.setCheckedItem(R.id.nav_newgame);
         }
 
+        statisticsData = new DummyData(this); //statistics data
+        statisticsData.createSample(this);
     }
 
     @Override
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     startActivity(Intent.createChooser(intent, "ShareView"));
                 }
             default:
-            return super.onOptionsItemSelected(item);
+                return super.onOptionsItemSelected(item);
         }
     }
 
@@ -93,12 +93,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
         switch (item.getItemId()){
             case R.id.nav_newgame:
+
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PlayFragment()).commit();
                 break;
             case R.id.nav_statistics:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Statistics()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Statistics(), "STAT_FRAGMENT").commit();
                 break;
             case R.id.nav_history:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new History()).commit();
@@ -112,6 +114,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    /**
+     * search result
+     * @param view
+     */
+    public void searchPlayer(View view){
+
+        Statistics statFragment = (Statistics)getSupportFragmentManager().findFragmentByTag("STAT_FRAGMENT");
+        if (statFragment != null && statFragment.isVisible()) {
+
+            EditText textPlayerName = statFragment.getView().findViewById(R.id.textPlayerName);
+            String playerName = textPlayerName.getText().toString();
+
+            DummyData data = new DummyData(this);
+            data.loadSample(this);
+
+            TextView textSearchResult = statFragment.getView().findViewById(R.id.textSearchResult);
+            textSearchResult.setText(data.getHistory(playerName));
+        }
     }
 
     public void startNew(View view) {

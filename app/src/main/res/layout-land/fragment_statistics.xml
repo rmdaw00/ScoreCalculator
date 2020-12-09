@@ -16,31 +16,33 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="20dp"
+                android:layout_weight="5"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="2dp">
 
-                <TextView
-                    android:layout_width="match_parent"
+                <EditText
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Total Games"
-                    android:textColor="#FFFFFF"
-                    android:gravity="center"/>
+                    android:textSize="20dp"
+                    android:layout_weight="4"
+                    android:id="@+id/textPlayerName"
+                    android:textColor="#FFFFFF"/>
 
-                <TextView
-                    android:layout_width="match_parent"
+                <Button
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="35dp"
-                    android:text="0"
-                    android:id="@+id/textOrders"
+                    android:textSize="24dp"
+                    android:layout_weight="1"
+                    android:text="Search"
+                    android:id="@+id/buttonSearch"
+                    android:onClick="searchPlayer"
                     android:textColor="#FFFFFF"
-                    android:gravity="center"/>
-
+                    android:gravity="right"/>
             </LinearLayout>
 
             <LinearLayout
@@ -53,57 +55,15 @@
                 android:layout_marginTop="2dp">
 
                 <TextView
+                    android:id="@+id/textSearchResult"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Total Win"
-                    android:textColor="#FFFFFF"
-                    android:gravity="center"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="35dp"
-                    android:text="Rs. 0"
-                    android:id="@+id/textTotal"
-                    android:textColor="#FFFFFF"
-                    android:gravity="center"/>
+                    android:text=""
+                    android:textColor="#FFFFFF"/>
 
             </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="2dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Total Loss"
-                    android:textColor="#FFFFFF"
-                    android:gravity="center"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="35dp"
-                    android:text="Rs. 0"
-                    android:id="@+id/textDiscount"
-                    android:textColor="#FFFFFF"
-                    android:gravity="center"/>
-
-            </LinearLayout>
-
-
         </LinearLayout>
-
     </ScrollView>
-
-
 
 </LinearLayout>

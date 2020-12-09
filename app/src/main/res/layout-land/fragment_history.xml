@@ -5,6 +5,11 @@
     android:layout_height="match_parent"
     android:background="@drawable/historylandscape">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
