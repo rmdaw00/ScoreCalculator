@@ -63,13 +63,9 @@ public class DummyData {
     public void loadSample(Context context) {
 
         preferences = context.getSharedPreferences(String.valueOf(R.string.DatabaseLists), context.MODE_PRIVATE);
-        //editor = preferences.edit();
 
         Gson gson = new Gson();
 
-        /*
-         *
-         * */
         String gameListStr = preferences.getString("ListOfGames", "");
         if(gameListStr.length()>0) {
             Type gameType = new TypeToken<ArrayList<Game>>() {}.getType();
@@ -113,15 +109,8 @@ public class DummyData {
         }
     }
 
-    /* Note /////////////
-     *  don't worry about how these objects
-     *  are created these are part of my activity
-     *  will be done automatically just focus
-     *  on loadSample Method below
-     * *//////////////////
     public void createSample(Context context) {
 
-        //NOOR PROFILE GAMES TOTAL STATS
         PlayerTotal noorTotal = new PlayerTotal(1,"Noor", GameType.snooker);
 
         Break highestBreak = new Break();
@@ -148,7 +137,6 @@ public class DummyData {
         noorTotal.setSumBreaksPlayed(100);
 
 
-        //NOOR CURRENT GAME STATS
         PlayerInGame noor = new PlayerInGame(1,"Noor", noorTotal);
         noor.setPoints(40);
         noor.setShots(60);
@@ -173,7 +161,6 @@ public class DummyData {
         noor.setHighestBreak(break2);
 
 
-        //NOOR PROFILE GAMES TOTAL STATS
         PlayerTotal rashedTotal = new PlayerTotal(2,"Rashed", GameType.snooker);
 
         Break RhighestBreak = new Break();
@@ -201,7 +188,6 @@ public class DummyData {
         rashedTotal.setSumBreaksPlayed(100);
 
 
-        //NOOR CURRENT GAME STATS
         PlayerInGame rashed = new PlayerInGame(4,"Rashed", rashedTotal);
         rashed.setPoints(20);
         rashed.setShots(60);
@@ -229,8 +215,6 @@ public class DummyData {
         rashed.setBreaks(breaks);
         rashed.setHighestBreak(break2);
 
-
-        //Creating a game object
         ArrayList<PlayerInGame> players = new ArrayList<PlayerInGame>();
         players.add(noor);
         players.add(rashed);
@@ -242,8 +226,6 @@ public class DummyData {
         cldend.set(2020,5,2,23,00);
         game.setEndTime(cldend.getTime());
         game.setWinner(noor);
-
-        ///////////// UNTIL HERE EVERYTHING SHOULD BE AUTOMATIC ///
 
 
         ArrayList<Game> games = new ArrayList<Game>();
@@ -264,7 +246,6 @@ public class DummyData {
         editor.apply();
     }
 
-    // get history based on player name
     public String getHistory(String playerName) {
         boolean found = false;
 

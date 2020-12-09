@@ -94,15 +94,9 @@ public class testFile extends AppCompatActivity {
 
     }
 
-    /* Note /////////////
-     *  don't worry about how these objects
-     *  are created these are part of my activity
-     *  will be done automatically just focus
-     *  on loadSample Method below
-     * *//////////////////
     public void createSample(View view) {
 
-        //NOOR PROFILE GAMES TOTAL STATS
+
         PlayerTotal noorTotal = new PlayerTotal(1,"Noor", GameType.snooker);
 
         Break highestBreak = new Break();
@@ -129,7 +123,6 @@ public class testFile extends AppCompatActivity {
         noorTotal.setSumBreaksPlayed(100);
 
 
-        //NOOR CURRENT GAME STATS
         PlayerInGame noor = new PlayerInGame(1,"Noor", noorTotal);
         noor.setPoints(40);
         noor.setShots(60);
@@ -154,7 +147,6 @@ public class testFile extends AppCompatActivity {
         noor.setHighestBreak(break2);
 
 
-        //NOOR PROFILE GAMES TOTAL STATS
         PlayerTotal rashedTotal = new PlayerTotal(2,"Rashed", GameType.snooker);
 
         Break RhighestBreak = new Break();
@@ -182,7 +174,6 @@ public class testFile extends AppCompatActivity {
         rashedTotal.setSumBreaksPlayed(100);
 
 
-        //NOOR CURRENT GAME STATS
         PlayerInGame rashed = new PlayerInGame(4,"Rashed", rashedTotal);
         rashed.setPoints(20);
         rashed.setShots(60);
@@ -223,8 +214,6 @@ public class testFile extends AppCompatActivity {
         cldend.set(2020,5,2,23,00);
         game.setEndTime(cldend.getTime());
         game.setWinner(noor);
-
-        ///////////// UNTIL HERE EVERYTHING SHOULD BE AUTOMATIC ///
 
 
         ArrayList<Game> games = new ArrayList<Game>();
