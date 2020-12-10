@@ -5,7 +5,15 @@
     android:layout_height="match_parent"
     android:background="@drawable/historypage">
 
+    <TextView
+        android:id="@+id/viewHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/gridBottom"/>
+
     <GridLayout
+        android:id="@+id/gridBottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"

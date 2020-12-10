@@ -1,11 +1,8 @@
-package com.rassam.main;
+package com.rassam.data;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -16,42 +13,67 @@ import com.rassam.ESnooker.Ball;
 import com.rassam.ESnooker.BallColor;
 import com.rassam.ESnooker.PlayerInGame;
 import com.rassam.ESnooker.PlayerTotal;
+import com.rassam.main.R;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class testFile extends AppCompatActivity {
+/**
+ * statistics data
+ */
+public class DummyData {
+
+    //total game
+    private int totalGames;
+
+    //total wins
+    private int totalWins;
+
+    //total losses
+    private int totalLosses;
 
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
-    private TextView txtSample;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
-        txtSample = findViewById(R.id.txtSample);
+    public String sampleOutput = "";
 
+    private ArrayList<Game> allGames;
+    private ArrayList<PlayerTotal> allPlayers;
+
+    //constructor
+    public DummyData(Context context){
+        totalGames = 0;
+        totalWins = 0;
+        totalLosses = 0;
     }
-    public void loadSample(View view) {
-        preferences = getSharedPreferences(String.valueOf(R.string.DatabaseLists),MODE_PRIVATE);
-        //editor = preferences.edit();
-        ArrayList<Game> allGames;
-        ArrayList<PlayerTotal> allPlayers;
+
+    public int getTotalGames() {
+        return totalGames;
+    }
+
+    public int getTotalWins() {
+        return totalWins;
+    }
+
+    public int getTotalLosses() {
+        return totalLosses;
+    }
+
+    public void loadSample(Context context) {
+
+        preferences = context.getSharedPreferences(String.valueOf(R.string.DatabaseLists), context.MODE_PRIVATE);
+
         Gson gson = new Gson();
 
-        /*
-         *
-         * */
         String gameListStr = preferences.getString("ListOfGames", "");
-
         if(gameListStr.length()>0) {
             Type gameType = new TypeToken<ArrayList<Game>>() {}.getType();
             allGames = gson.fromJson(gameListStr,gameType);
         } else {
             allGames = new ArrayList<Game>();
         }
+
         String playerListStr = preferences.getString("ListOfPlayers", "");
         if(playerListStr.length()>0) {
             Type playerType = new TypeToken<ArrayList<PlayerTotal>>() {}.getType();
@@ -60,7 +82,8 @@ public class testFile extends AppCompatActivity {
             allPlayers = new ArrayList<PlayerTotal>();
         }
 
-        String sampleOutput = "";
+        totalGames = allGames.size();
+
         for (Game game:allGames) {
             sampleOutput += "Game " + game.getGameID() +"\n";
             sampleOutput += "Game Type: " + game.getGametype().toString() +"\n";
@@ -74,7 +97,6 @@ public class testFile extends AppCompatActivity {
             sampleOutput += "StartTime: " + game.getStartTime().toString() +"\n";
             sampleOutput += "EndTime: " + game.getEndTime().toString() +"\n\n";
 
-
             for (PlayerInGame player: game.getPlayers()) {
                 sampleOutput += player.getName() + "\n";
                 sampleOutput += "Score: " + player.getPoints() + "\n";
@@ -82,20 +104,12 @@ public class testFile extends AppCompatActivity {
                 sampleOutput += player.getFouls() + " Fouls committed, " + player.getFoulPercentage() +"\n";
                 sampleOutput += "Average Balls per Break: " + player.getBreakAvgBalls() + "\n";
                 sampleOutput += "Average Points per Break: " + player.getBreakAvgPoints() + "\n\n";
+
             }
-
         }
-
-
-
-
-        txtSample.setText(sampleOutput);
-
-
     }
 
-    public void createSample(View view) {
-
+    public void createSample(Context context) {
 
         PlayerTotal noorTotal = new PlayerTotal(1,"Noor", GameType.snooker);
 
@@ -201,8 +215,6 @@ public class testFile extends AppCompatActivity {
         rashed.setBreaks(breaks);
         rashed.setHighestBreak(break2);
 
-
-        //Creating a game object
         ArrayList<PlayerInGame> players = new ArrayList<PlayerInGame>();
         players.add(noor);
         players.add(rashed);
@@ -223,7 +235,7 @@ public class testFile extends AppCompatActivity {
         allPlayers.add(noorTotal);
         allPlayers.add(rashedTotal);
 
-        preferences = getSharedPreferences(String.valueOf(R.string.DatabaseLists),MODE_PRIVATE);
+        preferences = context.getSharedPreferences(String.valueOf(R.string.DatabaseLists), context.MODE_PRIVATE);
         editor = preferences.edit();
 
         Gson gson = new Gson();
@@ -232,5 +244,40 @@ public class testFile extends AppCompatActivity {
         editor.putString("ListOfGames", gameListStr);
         editor.putString("ListOfPlayers", playerListStr);
         editor.apply();
+    }
+
+    public String getHistory(String playerName) {
+        boolean found = false;
+
+        String result = "";
+        result += "Player Name: " + playerName +"\n";
+        for (Game game:allGames) {
+
+            for (PlayerInGame player: game.getPlayers()) {
+                if (player.getName().equalsIgnoreCase(playerName)){
+                    result += "\n";
+                    result += "Game " + game.getGameID() +"\n";
+                    result += "Game Type: " + game.getGametype().toString() +"\n";
+                    result += "Winner: " + game.getWinner().getName() +"\n";
+                    result += "StartTime: " + game.getStartTime().toString() +"\n";
+                    result += "EndTime: " + game.getEndTime().toString() +"\n\n";
+
+                    result += "Score: " + player.getPoints() + "\n";
+                    result += player.getPots() + " balls potted with accuracy of "+ player.getAccuracy()+"\n";
+                    result += player.getFouls() + " Fouls committed, " + player.getFoulPercentage() +"\n";
+                    result += "Average Balls per Break: " + player.getBreakAvgBalls() + "\n";
+                    result += "Average Points per Break: " + player.getBreakAvgPoints() + "\n\n";
+
+                    found = true;
+
+                    break;
+                }
+            }
+        }
+
+        if (!found){
+            result = "Player not found!";
+        }
+        return result;
     }
 }
