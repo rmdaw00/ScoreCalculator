@@ -45,13 +45,13 @@ public class testFile extends AppCompatActivity {
         *
         * */
         String gameListStr = preferences.getString("ListOfGames", "");
+
         if(gameListStr.length()>0) {
             Type gameType = new TypeToken<ArrayList<Game>>() {}.getType();
             allGames = gson.fromJson(gameListStr,gameType);
         } else {
             allGames = new ArrayList<Game>();
         }
-
         String playerListStr = preferences.getString("ListOfPlayers", "");
         if(playerListStr.length()>0) {
             Type playerType = new TypeToken<ArrayList<PlayerTotal>>() {}.getType();
