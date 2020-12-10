@@ -2,10 +2,10 @@ package com.rassam.main;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -13,19 +13,23 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.rassam.BilliardEntities.Game;
 import com.rassam.BilliardEntities.GameType;
-import com.rassam.ESnooker.Player;
+import com.rassam.ESnooker.PlayerInGame;
+import com.rassam.ESnooker.PlayerTotal;
+import com.rassam.data.Data;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.regex.Pattern;
 
 public class AddPlayers extends AppCompatActivity  {
     private LinearLayout lyt_Names;
     private EditText edtxt_AddName;
-    private ArrayList<Player> players;
-    private Button btn_AddPlayer;
-    private int index;
+
+    private Game newGame;
+    private int playerCount;
     private GameType gameType;
+
 
 
     @Override
@@ -34,8 +38,7 @@ public class AddPlayers extends AppCompatActivity  {
         setContentView(R.layout.activity_add_players);
         lyt_Names = (LinearLayout) findViewById(R.id.lyt_names);
         edtxt_AddName = (EditText) findViewById(R.id.edtxt_AddName);
-        btn_AddPlayer = (Button) findViewById(R.id.btn_AddPlayer);
-        index = 0;
+        playerCount = 0;
 
         Bundle extras = getIntent().getExtras();
         if(extras == null) {
@@ -43,6 +46,9 @@ public class AddPlayers extends AppCompatActivity  {
         } else {
             gameType =(GameType) extras.getSerializable("gameType");
         }
+
+        Data.loadData(this);
+        newGame = Data.addNewGame(this, gameType);
 
 
         edtxt_AddName.addTextChangedListener(new TextWatcher() {
@@ -74,23 +80,40 @@ public class AddPlayers extends AppCompatActivity  {
         return regex.split(str).length > 0;
     }
 
-
+    /*
+    * VERY Important note:
+    * before working on any Data.Player functions you have to loadPlayers
+    *
+    * */
     public void addPlayer(View view) {
         // TODO: Add tasks to assign new ids to (game, playerInGame, PlayerTotal)
 
-        String name = edtxt_AddName.getText().toString();
-        if (!name.trim().equals("")) {
-            TextView newTextView = new TextView(getApplicationContext());
-            newTextView.setLayoutParams(new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.WRAP_CONTENT, // Width Of The TextView
-                    LinearLayout.LayoutParams.WRAP_CONTENT) // Height Of The TextView
-            );
-            newTextView.setText(name.trim());
-            //players.add(new Player());
+        String name = edtxt_AddName.getText().toString().trim();
+        if (!name.equals("")) {
+            if (Data.getPlayersCount() == 0) Data.loadData(this);
 
-            edtxt_AddName.setText("");
-            newTextView.setTextSize(40);
-            lyt_Names.addView(newTextView, index++);
+            PlayerTotal playerTotal = Data.findPlayerByName(name,gameType);
+
+            PlayerInGame newPlayer;
+            if (playerTotal != null) {
+                newPlayer = new PlayerInGame(++playerCount,name,playerTotal);
+            } else
+            {
+                playerTotal = Data.addNewPlayerTotal(this,name,gameType);
+                newPlayer = new PlayerInGame(++playerCount,name, playerTotal);
+            }
+            newGame.getPlayers().add(newPlayer);
+
+            //Creating new TextView
+                TextView newTextView = new TextView(getApplicationContext());
+                newTextView.setLayoutParams(new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.WRAP_CONTENT, // Width Of The TextView
+                        LinearLayout.LayoutParams.WRAP_CONTENT) // Height Of The TextView
+                );
+                newTextView.setText(name);
+                edtxt_AddName.setText("");
+                newTextView.setTextSize(40);
+                lyt_Names.addView(newTextView, playerCount);
         } else {
             edtxt_AddName.setText("");
             Toast.makeText(getApplicationContext(),"Please add a name", Toast.LENGTH_SHORT).show();
@@ -101,7 +124,7 @@ public class AddPlayers extends AppCompatActivity  {
 
         if (gameType == GameType.snooker) {
             Intent intent = new Intent(this, GameSnooker.class);
-
+             intent.putExtra("game", newGame);
             startActivityForResult(intent, 2001);
         } else
         {

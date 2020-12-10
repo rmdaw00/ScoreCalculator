@@ -1,6 +1,5 @@
 package com.rassam.main;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,9 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.rassam.data.DummyData;
-
-import org.w3c.dom.Text;
+import com.rassam.data.Data;
 
 public class Statistics extends Fragment {
 
@@ -21,7 +18,7 @@ public class Statistics extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        DummyData data = new DummyData(getContext());
+        Data data = new Data(getContext());
         data.loadSample(getContext());
 
         View view = inflater.inflate(R.layout.fragment_statistics, container, false);

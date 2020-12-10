@@ -8,25 +8,61 @@
     android:background="@drawable/background_gradient"
     tools:context=".GameSnooker">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/cly_Congrats"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/cly_Score">
+
+        <TextView
+            android:id="@+id/lblCongrats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Congratulations"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+
+            app:layout_constraintBottom_toTopOf="@id/txtCongrats"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtCongrats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="The Winner is"
+            android:textColor="@color/white"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblCongrats" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="411dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clBalls"
+        android:id="@+id/cly_Balls"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/clOptions"
+        app:layout_constraintEnd_toStartOf="@+id/cly_Options"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/gd_hor">
 
@@ -48,7 +84,12 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bblue" />
+                app:srcCompat="@drawable/bblue"
+                android:onClick="sBall"
+                android:tag="5"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -70,7 +111,12 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bpink" />
+                app:srcCompat="@drawable/bpink"
+                android:onClick="sBall"
+                android:tag="6"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -91,7 +137,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bred" />
+                app:srcCompat="@drawable/bred"
+                android:onClick="sRedBall"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -116,7 +166,11 @@
                 app:layout_constraintEnd_toStartOf="@+id/bRed3"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bred" />
+                app:srcCompat="@drawable/bred"
+                android:onClick="sRedBall"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true"/>
 
             <ImageView
                 android:id="@+id/bRed3"
@@ -129,7 +183,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/bRed2"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bred" />
+                app:srcCompat="@drawable/bred"
+                android:onClick="sRedBall"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -152,7 +210,11 @@
                 app:layout_constraintEnd_toStartOf="@+id/bRed5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bred" />
+                app:srcCompat="@drawable/bred"
+                android:onClick="sRedBall"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true"/>
 
             <ImageView
                 android:id="@+id/bRed5"
@@ -163,7 +225,11 @@
                 app:layout_constraintEnd_toStartOf="@+id/bRed6"
                 app:layout_constraintStart_toEndOf="@+id/bRed4"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bred" />
+                app:srcCompat="@drawable/bred"
+                android:onClick="sRedBall"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true"/>
 
             <ImageView
                 android:id="@+id/bRed6"
@@ -176,7 +242,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/bRed5"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bred" />
+                app:srcCompat="@drawable/bred"
+                android:onClick="sRedBall"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -200,7 +270,11 @@
                 app:layout_constraintEnd_toStartOf="@+id/bRed8"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bred" />
+                app:srcCompat="@drawable/bred"
+                android:onClick="sRedBall"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true"/>
 
             <ImageView
                 android:id="@+id/bRed8"
@@ -212,7 +286,11 @@
                 app:layout_constraintEnd_toStartOf="@+id/bRed9"
                 app:layout_constraintStart_toEndOf="@+id/bRed7"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bred" />
+                app:srcCompat="@drawable/bred"
+                android:onClick="sRedBall"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true"/>
 
             <ImageView
                 android:id="@+id/bRed9"
@@ -224,7 +302,11 @@
                 app:layout_constraintEnd_toStartOf="@+id/bRed10"
                 app:layout_constraintStart_toEndOf="@+id/bRed8"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bred" />
+                app:srcCompat="@drawable/bred"
+                android:onClick="sRedBall"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true"/>
 
             <ImageView
                 android:id="@+id/bRed10"
@@ -236,7 +318,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/bRed9"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bred" />
+                app:srcCompat="@drawable/bred"
+                android:onClick="sRedBall"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -258,7 +344,11 @@
                 app:layout_constraintEnd_toStartOf="@+id/bRed12"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bred" />
+                app:srcCompat="@drawable/bred"
+                android:onClick="sRedBall"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true"/>
 
             <ImageView
                 android:id="@+id/bRed12"
@@ -269,7 +359,11 @@
                 app:layout_constraintEnd_toStartOf="@+id/bRed13"
                 app:layout_constraintStart_toEndOf="@+id/bRed11"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bred" />
+                app:srcCompat="@drawable/bred"
+                android:onClick="sRedBall"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true"/>
 
             <ImageView
                 android:id="@+id/bRed13"
@@ -280,7 +374,11 @@
                 app:layout_constraintEnd_toStartOf="@+id/bRed14"
                 app:layout_constraintStart_toEndOf="@+id/bRed12"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bred" />
+                app:srcCompat="@drawable/bred"
+                android:onClick="sRedBall"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true"/>
 
             <ImageView
                 android:id="@+id/bRed14"
@@ -291,7 +389,11 @@
                 app:layout_constraintEnd_toStartOf="@+id/bRed15"
                 app:layout_constraintStart_toEndOf="@+id/bRed13"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bred" />
+                app:srcCompat="@drawable/bred"
+                android:onClick="sRedBall"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true"/>
 
             <ImageView
                 android:id="@+id/bRed15"
@@ -302,7 +404,12 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/bRed14"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bred" />
+                app:srcCompat="@drawable/bred"
+                android:onClick="sRedBall"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true"
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -323,7 +430,12 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bblack" />
+                app:srcCompat="@drawable/bblack"
+                android:onClick="sBall"
+                android:tag="7"
+                android:clickable="true"
+                android:focusable="true"
+                android:soundEffectsEnabled="true"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -333,7 +445,7 @@
             app:layout_constraintBottom_toTopOf="@+id/clB3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/clB1">
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -343,7 +455,8 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="12dp">
+                tools:layout_editor_absoluteY="12dp"
+                >
 
                 <ImageView
                     android:id="@+id/bYellow"
@@ -355,7 +468,12 @@
                     app:layout_constraintEnd_toStartOf="@id/bBrown"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/byellow" />
+                    app:srcCompat="@drawable/byellow"
+                    android:onClick="sBall"
+                    android:tag="2"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:soundEffectsEnabled="true"/>
 
                 <ImageView
                     android:id="@+id/bBrown"
@@ -367,7 +485,13 @@
                     app:layout_constraintEnd_toStartOf="@id/bGreen"
                     app:layout_constraintStart_toEndOf="@+id/bYellow"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/bbrown" />
+                    app:srcCompat="@drawable/bbrown"
+                    android:onClick="sBall"
+                    android:tag="4"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:soundEffectsEnabled="true"
+                    />
 
                 <ImageView
                     android:id="@+id/bGreen"
@@ -379,37 +503,22 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/bBrown"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/bgreen" />
+                    app:srcCompat="@drawable/bgreen"
+                    android:onClick="sBall"
+                    android:tag="3"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:soundEffectsEnabled="true"
+                    />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/clB1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-
-            app:layout_constraintBottom_toTopOf="@+id/clB2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/bWhite"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:contentDescription="@string/imgText_WhiteBall"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bwhite" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clOptions"
+        android:id="@+id/cly_Options"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="16dp"
@@ -424,7 +533,7 @@
             android:layout_height="0dp"
             android:layout_marginBottom="2dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/imgDone"
+            app:layout_constraintBottom_toTopOf="@+id/imgPot"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -443,7 +552,10 @@
             <ImageView
                 android:id="@+id/imgCurrentBall"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:adjustViewBounds="true"
                 android:contentDescription="@string/imgText_Border"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -453,18 +565,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <ImageView
-            android:id="@+id/imgDone"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            android:contentDescription="@string/imgText_Next"
-            app:layout_constraintBottom_toTopOf="@+id/imgPot"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/clCurrentBall"
-            app:srcCompat="@drawable/nextw" />
+
 
         <ImageView
             android:id="@+id/imgPot"
@@ -476,60 +577,105 @@
             app:layout_constraintBottom_toTopOf="@+id/imgFoul"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgDone"
-            app:srcCompat="@drawable/potw" />
+            app:layout_constraintTop_toBottomOf="@+id/clCurrentBall"
+            app:srcCompat="@drawable/potb"
+            android:onClick="missed"
+            android:clickable="true"
+            android:focusable="true"
+            android:soundEffectsEnabled="true"/>
 
         <ImageView
             android:id="@+id/imgFoul"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="2dp"
-            android:layout_marginEnd="4dp"
             android:layout_marginBottom="2dp"
             android:contentDescription="@string/imgText_Foul"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/imgRemoveRed"
+            app:layout_constraintBottom_toTopOf="@id/imgRemoveRed"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imgPot"
-            app:srcCompat="@drawable/foulw" />
+            app:srcCompat="@drawable/foulb"
+            android:onClick="madeFoul"
+            android:clickable="true"
+            android:focusable="true"
+            android:soundEffectsEnabled="true"/>
 
         <ImageView
             android:id="@+id/imgRemoveRed"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="4dp"
             android:contentDescription="@string/imgText_RmRed"
+            app:layout_constraintBottom_toTopOf="@+id/imgDone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgFoul"
+            app:srcCompat="@drawable/removeball"
+            android:onClick="removeRed"
+            android:clickable="true"
+            android:focusable="true"
+            android:soundEffectsEnabled="true"/>
+
+        <ImageView
+            android:id="@+id/imgDone"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:clickable="true"
+            android:contentDescription="@string/imgText_Next"
+            android:focusable="true"
+            android:onClick="doFinish"
+            android:soundEffectsEnabled="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imgFoul"
-            app:layout_constraintTop_toBottomOf="@id/imgDone"
-            app:srcCompat="@drawable/removeballw" />
-
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgRemoveRed"
+            app:srcCompat="@drawable/finishb" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clScore"
+        android:id="@+id/cly_Score"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="3dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout5"
+        app:layout_constraintBottom_toTopOf="@+id/cly_break"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gln_labels"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintGuide_percent="0.30"
+            />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clGameInfo"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@+id/clPlayerInfo"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" >
+            app:layout_constraintTop_toTopOf="parent">
 
 
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gln_labels2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintGuide_percent="0.30"
 
+                app:layout_constraintStart_toStartOf="parent" />
 
             <HorizontalScrollView
                 android:id="@+id/horizontalScrollView"
@@ -543,7 +689,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chpGroup_Players"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
@@ -556,70 +704,23 @@
                             android:id="@+id/chip1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@color/colorAccent"
+                            android:backgroundTint="@color/colorAccent"
+                            android:backgroundTintMode="screen"
                             android:checkable="true"
+                            android:textSize="18sp"
                             android:checked="true"
-                            android:text="Player1" />
+                            android:onClick="chipClicked"
+                            android:text="Player1"
+
+                            />
 
                         <com.google.android.material.chip.Chip
                             android:id="@+id/chip2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@color/colorAccent"
                             android:checkable="true"
                             android:text="Player2" />
 
-                        <com.google.android.material.chip.Chip
-                            android:id="@+id/chip3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@color/colorAccent"
-                            android:checkable="true"
-                            android:text="Player1" />
-
-                        <com.google.android.material.chip.Chip
-                            android:id="@+id/chip4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@color/colorAccent"
-                            android:checkable="true"
-                            android:text="Player2" />
-                        <com.google.android.material.chip.Chip
-                            android:id="@+id/chip5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@color/colorAccent"
-                            android:checkable="true"
-                            android:text="Player1" />
-
-                        <com.google.android.material.chip.Chip
-                            android:id="@+id/chip6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@color/colorAccent"
-                            android:checkable="true"
-                            android:text="Player2" />
-                        <com.google.android.material.chip.Chip
-                            android:id="@+id/chip7"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@color/colorAccent"
-                            android:checkable="true"
-                            android:text="Player2" />
-                        <com.google.android.material.chip.Chip
-                            android:id="@+id/chip8"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@color/colorAccent"
-                            android:checkable="true"
-                            android:text="Player2" />
-                        <com.google.android.material.chip.Chip
-                            android:id="@+id/chip9"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@color/colorAccent"
-                            android:checkable="true"
-                            android:text="Player2" />
 
                     </com.google.android.material.chip.ChipGroup>
                 </LinearLayout>
@@ -627,17 +728,81 @@
 
             </HorizontalScrollView>
 
-            <TextView
-                android:id="@+id/txtPoints"
-                android:layout_width="wrap_content"
+
+            <LinearLayout
+                android:id="@+id/lyt_gameLabels"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:text="0"
-                android:textSize="25sp"
-                android:textColor="@color/white"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/gln_labels2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+
+                >
+
+                <TextView
+                    android:id="@+id/lblGameID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Game ID"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+                <TextView
+                    android:id="@+id/lblGamePoints"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Points Left"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lblGameID" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lyt_gameText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/lyt_gameLabels"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+
+                >
+
+                <TextView
+                    android:id="@+id/txtGameID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+                <TextView
+                    android:id="@+id/txtGamePoints"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtGameID" />
+            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -651,7 +816,167 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:id="@+id/lyt_playerLabels"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/gln_labels"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clGameInfo"
 
+            >
+            <TextView
+                android:id="@+id/lblPlayerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Name"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+            <TextView
+                android:id="@+id/lblPlayerPoints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Score"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+            <TextView
+                android:id="@+id/lblPlayerPots"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Balls In"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+            <TextView
+                android:id="@+id/lblPlayerFouls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Fouls"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+            <TextView
+                android:id="@+id/lblPlayerAvgBreak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Break Avg\n"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+            <TextView
+                android:id="@+id/lblPlayerMaxBreak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Max Break"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lyt_playerText"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/lyt_playerLabels"
+            app:layout_constraintTop_toBottomOf="@+id/clGameInfo"
+            >
+            <TextView
+                android:id="@+id/txtPlayerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+            <TextView
+                android:id="@+id/txtPlayerPoints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+            <TextView
+                android:id="@+id/txtPlayerPots"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="0  (Accuracy 0%)"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+            <TextView
+                android:id="@+id/txtPlayerFouls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="0  (Percentage 0%)"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+            <TextView
+                android:id="@+id/txtPlayerAvgBreak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="2.3 Points\n1.5 Balls"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+            <TextView
+                android:id="@+id/txtPlayerMaxBreak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="17 Points\n3 Balls"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.Guideline
@@ -669,38 +994,53 @@
         app:layout_constraintGuide_percent="0.54" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout5"
+        android:id="@+id/cly_break"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/gd_hor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/clScore">
+        app:layout_constraintTop_toBottomOf="@+id/cly_Score">
 
         <TextView
             android:id="@+id/tvCurrentBreak"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
             android:lines="1"
             android:text="@string/txtText_CurrentBreak"
             android:textColor="@color/white"
-            android:textSize="25sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/clBreak"
+            app:layout_constraintEnd_toStartOf="@id/sclyt_Break"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/clBreak"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/imgBack"
-            app:layout_constraintStart_toEndOf="@id/tvCurrentBreak"
-            app:layout_constraintTop_toTopOf="parent">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <HorizontalScrollView
+                    android:id="@+id/sclyt_Break"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="end"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/imgBack"
+                    app:layout_constraintStart_toEndOf="@id/tvCurrentBreak"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:id="@+id/lyt_Break"
+                        android:layout_gravity="clip_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="end" />
+                </HorizontalScrollView>
+
+
 
         <ImageView
             android:id="@+id/imgBack"
@@ -709,7 +1049,7 @@
             android:layout_marginEnd="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/clBreak"
+            app:layout_constraintStart_toEndOf="@+id/sclyt_Break"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/back" />
     </androidx.constraintlayout.widget.ConstraintLayout>

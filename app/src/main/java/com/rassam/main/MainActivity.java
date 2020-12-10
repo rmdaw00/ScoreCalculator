@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -21,12 +20,12 @@ import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.rassam.BilliardEntities.GameType;
-import com.rassam.data.DummyData;
+import com.rassam.data.Data;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
 
-    private DummyData statisticsData;
+    private Data statisticsData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +48,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PlayFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_newgame);
         }
-
-        statisticsData = new DummyData(this); //statistics data
-        statisticsData.createSample(this);
     }
 
     @Override
@@ -128,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             EditText textPlayerName = statFragment.getView().findViewById(R.id.textPlayerName);
             String playerName = textPlayerName.getText().toString();
 
-            DummyData data = new DummyData(this);
+            Data data = new Data(this);
             data.loadSample(this);
 
             TextView textSearchResult = statFragment.getView().findViewById(R.id.textSearchResult);

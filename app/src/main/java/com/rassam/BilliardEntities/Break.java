@@ -2,22 +2,22 @@ package com.rassam.BilliardEntities;
 
 import com.rassam.ESnooker.Ball;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class Break {
+public class Break implements Serializable {
     List<Ball> balls = new ArrayList<Ball>();
-    static int idCount = 0;
     int id;
     Date date;
+    Ball lastBall;
 
 
 
     public Break() {
-        setId(++idCount);
         Calendar calendar = Calendar.getInstance();
         calendar.set(2020,01,01);
         date = new Date();
@@ -35,7 +35,9 @@ public class Break {
         return balls.size();
     }
     public void addBall(Ball ball) {
+        lastBall = ball;
         balls.add(ball);
+        ball.setOrderInBreak(getBallCount());
     }
 
     public Date getDate() {
@@ -45,7 +47,13 @@ public class Break {
     public void setDate(Date date) {
         this.date = date;
     }
+    public Ball getLastBall() {
+        return lastBall;
+    }
 
+    public void setLastBall(Ball lastBall) {
+        this.lastBall = lastBall;
+    }
 
     public List<Ball> getBalls() {
         return balls;
@@ -55,9 +63,6 @@ public class Break {
         this.balls = balls;
     }
 
-    public static int getIdCount() {
-        return idCount;
-    }
 
     public int getId() {
         return id;

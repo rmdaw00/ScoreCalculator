@@ -2,11 +2,21 @@ package com.rassam.ESnooker;
 
 import com.rassam.BilliardEntities.Break;
 
+import java.io.Serializable;
+
 public class PlayerInGame extends Player {
+    public Break getCurrentBreak() {
+        return currentBreak;
+    }
+
+    public void setCurrentBreak(Break currentBreak) {
+        this.currentBreak = currentBreak;
+    }
+
     //private static int idCount = 0;
     private Break currentBreak;
 
-    public PlayerInGame(String name) {
+    private PlayerInGame(String name) {
         super(name);
     }
 
@@ -14,20 +24,24 @@ public class PlayerInGame extends Player {
     // this is the players profile that will be updated at the end
     // all time stats can be accessed from player.PlayerAssociated
     // e.g. player.PlayerAssociated.getAvgBreakPoints()
-    public PlayerTotal PlayerAssociated;
+    private PlayerTotal playerAssociated;
+
+
 
     public PlayerInGame(int id, String name, PlayerTotal playerAssociated) {
         super(name);
         super.setId(id);
-        PlayerAssociated = playerAssociated;
+        this.playerAssociated = playerAssociated;
         currentBreak = new Break();
+        currentBreak.setId(1);
+        setHighestBreak(new Break());
     }
 
     public void pot(Ball ball) {
         currentBreak.addBall(ball);
+
         setPots(getPots()+1);
         setShots(getShots()+1);
-        nextTurn();
     }
 
     public void foul(int penalty) {
@@ -36,15 +50,19 @@ public class PlayerInGame extends Player {
 
         // Apply Foul Point Penalty
         setPoints(getPoints()-penalty);
-        nextTurn();
+        nextTurn(true);
     }
 
     public void miss() {
         setShots(getShots()+1);
-        nextTurn();
+        nextTurn(true);
     }
 
-    private void nextTurn() {
+    public int getTotalPoints() {
+        return getPoints()+currentBreak.getPoints();
+    }
+
+    public void nextTurn(Boolean IncrementBreaks) {
         // Update highest break
         if (currentBreak.getPoints() > getHighestBreak().getPoints()) {
             setHighestBreak(currentBreak);
@@ -55,20 +73,29 @@ public class PlayerInGame extends Player {
 
         // Move to next Break
         this.getBreaks().add(currentBreak);
-        currentBreak = new Break();
+        if (currentBreak.getBallCount() !=0 || IncrementBreaks) currentBreak = new Break();
+        currentBreak.setId(getBreaks().size()+1);
     }
 
     //Game is finished, this method is called by Game Class once Score Difference is higher than game.ballsLeft.getMaxPointsLeft();
     @Override
     public void finish() {
         //Winner Game Attribute to be updated & reflect on Associated Player
-
+        nextTurn(true);
         if (currentBreak.getPoints() > getHighestBreak().getPoints()) {
             setHighestBreak(currentBreak);
         }
 
-        PlayerAssociated.update(this.getPoints(), this.getBreaks().size(), this.getPots(), this.getHighestBreak());
-        PlayerAssociated.finish();
+        playerAssociated.update(this.getPoints(), this.getBreaks().size(), this.getPots(), this.getHighestBreak());
+        playerAssociated.finish();
     }
 
+
+    public PlayerTotal getPlayerAssociated() {
+        return playerAssociated;
+    }
+
+    public void setPlayerAssociated(PlayerTotal playerAssociated) {
+        this.playerAssociated = playerAssociated;
+    }
 }

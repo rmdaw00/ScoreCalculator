@@ -3,12 +3,20 @@ package com.rassam.BilliardEntities;
 import com.rassam.ESnooker.Ball;
 import com.rassam.ESnooker.BallColor;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BallsLeft {
+public class BallsLeft  implements Serializable  {
     private List<Ball> balls;
 
+    public List<Ball> getBalls() {
+        return balls;
+    }
+
+    public void setBalls(List<Ball> balls) {
+        this.balls = balls;
+    }
 
     public BallsLeft(GameType gametype) {
         balls = new ArrayList<Ball>();
@@ -41,14 +49,24 @@ public class BallsLeft {
         return count;
     }
 
+    public void removeColoredBallMAYBE(BallColor ballColor, boolean exception) {
+        if (exception) return;
 
-    public void removeRed(int id) {
-        for (Ball ball: balls) {
-            if (ball.getBallColor() == BallColor.RED) {
-                if (ball.getOrderInBreak() == id) {
+        if (getRedCount()==0) {
+            for (Ball ball : balls) {
+                if (ball.getBallColor() == ballColor) {
                     balls.remove(ball);
                     break;
                 }
+            }
+        }
+    }
+
+    public void removeRed() {
+        for (Ball ball: balls) {
+            if (ball.getBallColor() == BallColor.RED) {
+                    balls.remove(ball);
+                    break;
             }
         }
     }

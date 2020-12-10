@@ -2,11 +2,12 @@ package com.rassam.ESnooker;
 
 import com.rassam.BilliardEntities.Break;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public abstract class Player {
+public abstract class Player implements Serializable {
 
     private String name;
     private int id;

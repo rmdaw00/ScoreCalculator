@@ -3,6 +3,7 @@ package com.rassam.ESnooker;
 import com.rassam.BilliardEntities.Break;
 import com.rassam.BilliardEntities.GameType;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -61,10 +62,14 @@ public class PlayerTotal extends Player {
         setPots(getPots()+ballsPotted);
 
         setSumBreaksPlayed(getSumBreaksPlayed()+breaksPlayed);
-
-        if(highestBreak.getPoints() > this.getHighestBreak().getPoints()) {
+        if (this.getHighestBreak() != null){
+            if(highestBreak.getPoints() > this.getHighestBreak().getPoints()) {
+                this.setHighestBreak(highestBreak);
+            }
+        } else {
             this.setHighestBreak(highestBreak);
         }
+
     }
 
     public String getWinRate() {
