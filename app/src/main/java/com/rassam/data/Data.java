@@ -2,6 +2,7 @@ package com.rassam.data;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -201,6 +202,18 @@ public class Data {
         return null;
     }
 
+    public static void updatePlayerTotals(PlayerTotal newPlayerTotal) {
+        int index = stt_allPlayers.indexOf(findPlayerByID(newPlayerTotal.getId()));
+        stt_allPlayers.set(index,newPlayerTotal);
+    }
+
+
+    public static void updateGame(Game game) {
+        int index = stt_allGames.indexOf(findGameByID(game.getGameID()));
+        stt_allGames.set(index,game);
+    }
+
+
     /*
      * VERY Important note:
      * before working on any Data.Player functions you have to loadData
@@ -210,6 +223,21 @@ public class Data {
         for (PlayerTotal player:stt_allPlayers) {
             if (player.getId() == id){
                 return player;
+            }
+        }
+        return null;
+    }
+
+
+    /*
+     * VERY Important note:
+     * before working on any Data.Player functions you have to loadData
+     *
+     * */
+    public static Game findGameByID(int id) {
+        for (Game game:stt_allGames) {
+            if (game.getGameID() == id){
+                return game;
             }
         }
         return null;

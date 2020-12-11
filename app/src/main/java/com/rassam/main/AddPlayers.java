@@ -132,4 +132,9 @@ public class AddPlayers extends AppCompatActivity  {
             startActivityForResult(intent, 2001);
         }
     }
+
+    public void replace(View view) {
+        Data.updatePlayerTotals(new PlayerTotal(55,"testttt", GameType.snooker));
+
+    }
 }

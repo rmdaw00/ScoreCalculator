@@ -28,6 +28,7 @@
             android:background="@drawable/rounded_button"
             android:onClick="startNew"
             android:text="@string/M_btn_playPool"
+            android:visibility="invisible"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -35,14 +36,14 @@
             android:id="@+id/M_playSnooker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
+            android:layout_rowWeight="2"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="5sp"
+            android:layout_margin="20sp"
             android:background="@drawable/rounded_button"
             android:onClick="startNew"
             android:text="@string/M_Btn_playSnooker"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
     </GridLayout>

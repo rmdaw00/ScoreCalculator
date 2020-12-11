@@ -376,6 +376,10 @@ public class GameSnooker extends AppCompatActivity {
             txtCongrats.setText("The Winner is " + game.getWinner().getName());
             txtCongrats.setVisibility(View.VISIBLE);
         }
+        for (PlayerInGame player: game.getPlayers()) {
+            Data.updatePlayerTotals(player.getPlayerAssociated());
+        }
+        Data.updateGame(game);
         Data.saveData(this);
     }
 
