@@ -130,6 +130,11 @@ public class GameSnooker extends AppCompatActivity {
             Intent intent = new Intent();
             setResult(RESULT_OK, intent);
             super.onBackPressed();
+        } else
+        {
+            Intent intent = new Intent();
+            setResult(RESULT_CANCELED, intent);
+            super.onBackPressed();
         }
     }
 

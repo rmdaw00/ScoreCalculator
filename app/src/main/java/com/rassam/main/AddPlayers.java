@@ -1,6 +1,7 @@
 package com.rassam.main;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.Editable;
@@ -11,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.rassam.BilliardEntities.Game;
@@ -133,8 +135,20 @@ public class AddPlayers extends AppCompatActivity  {
         }
     }
 
-    public void replace(View view) {
-        Data.updatePlayerTotals(new PlayerTotal(55,"testttt", GameType.snooker));
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 2001 && resultCode == RESULT_OK) {
+
+            finish();
+        } else if (resultCode == RESULT_CANCELED) {
+            Toast.makeText(this, "Game was Cancelled", Toast.LENGTH_SHORT).show();
+            Data.deleteGame(newGame);
+            finish();
+        }
+
 
     }
+
+
 }

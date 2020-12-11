@@ -94,6 +94,8 @@ public class Data {
         totalGames = allGames.size();
 
         for (Game game:allGames) {
+            if (game.getWinner() == null) continue; //TEMP bugfix
+
             sampleOutput += "Game " + game.getGameID() +"\n";
             sampleOutput += "Game Type: " + game.getGametype().toString() +"\n";
             sampleOutput += "Players: ";
@@ -122,30 +124,32 @@ public class Data {
         boolean found = false;
 
         String result = "";
-        result += "Player Name: " + playerName +"\n";
-        for (Game game:allGames) {
+        result += "Player Name: " + playerName +"\n\n";
 
-            for (PlayerInGame player: game.getPlayers()) {
+            for (PlayerTotal player: allPlayers) {
                 if (player.getName().equalsIgnoreCase(playerName)){
-                    result += "\n";
-                    result += "Game " + game.getGameID() +"\n";
-                    result += "Game Type: " + game.getGametype().toString() +"\n";
-                    result += "Winner: " + game.getWinner().getName() +"\n";
-                    result += "StartTime: " + game.getStartTime().toString() +"\n";
-                    result += "EndTime: " + game.getEndTime().toString() +"\n\n";
+                    result += "Wins: " + player.getWins() + "\n";
+                    result += "Games Played: " + player.getGamesPlayed() + "\n";
+                    result += "Win Rate: " + player.getWinRate() + "\n\n";
 
-                    result += "Score: " + player.getPoints() + "\n";
-                    result += player.getPots() + " balls potted with accuracy of "+ player.getAccuracy()+"\n";
-                    result += player.getFouls() + " Fouls committed, " + player.getFoulPercentage() +"\n";
+                    result += "Total Points: " + player.getPoints() + "\n";
+                    result += player.getPots() + " Total balls potted with accuracy of "+ player.getAccuracy()+"\n";
+                    result += player.getFouls() + " Total Fouls committed, " + player.getFoulPercentage() +"\n\n";
+
                     result += "Average Balls per Break: " + player.getBreakAvgBalls() + "\n";
                     result += "Average Points per Break: " + player.getBreakAvgPoints() + "\n\n";
 
-                    found = true;
+                    result += "Highest Break Points: " + player.getHighestBreak().getPoints() + "\n";
+                    result += "Highest Break Ball Count: " + player.getHighestBreak().getBallCount() + "\n";
+                    result += "Highest Break Date: " + player.getHighestBreak().getDate().toString() + "\n\n";
 
+                    result += "Highest Game Points: " + player.getHighestGamePoints() + "\n";
+                    result += "Highest Game Date: " + player.getHighestGamePointsDate().toString() + "\n\n";
+
+                    found = true;
                     break;
                 }
             }
-        }
 
         if (!found){
             result = "Player not found!";
@@ -211,6 +215,11 @@ public class Data {
     public static void updateGame(Game game) {
         int index = stt_allGames.indexOf(findGameByID(game.getGameID()));
         stt_allGames.set(index,game);
+    }
+
+    public static void deleteGame(Game game) {
+        int index = stt_allGames.indexOf(findGameByID(game.getGameID()));
+        stt_allGames.remove(index);
     }
 
 
